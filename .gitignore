@@ -58,4 +58,4 @@ typings/
 .env
 
 # remove config with credentials
-./config.js
+config.js*

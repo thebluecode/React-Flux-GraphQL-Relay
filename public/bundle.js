@@ -7866,9 +7866,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var API = {
     fetchLinks: function fetchLinks() {
-        (0, _jquery.get)('/data/links').done(function (res) {
+        (0, _jquery.post)('/graphql', {
+            query: '{ links { _id title url } }'
+        }).done(function (res) {
             console.log('1. In API');
-            _ServerActions2.default.receiveLinks(res);
+            _ServerActions2.default.receiveLinks(res.data.links);
         });
     }
 };
